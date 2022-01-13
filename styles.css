@@ -1,0 +1,304 @@
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+:root{
+    --text:darkslategray;
+    --hover:firebrick;
+}
+body{
+    
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: white;
+}
+main{
+    margin: 0 auto;
+    height: 100vh;
+}
+.flexible{
+    display: flex;
+}
+a{
+    text-decoration: none;
+    color:var(--text);
+}
+
+ul{
+    list-style: none;
+}
+nav{
+    padding: 0px 1.5vw;
+    height: 10vh;
+    align-items: center;
+    justify-content: space-between;
+    font-family: sans-serif;
+}
+.logo{
+    animation: logo 16s infinite ease-in-out;
+}
+nav img{
+    height: 50px;
+}
+nav a{
+    position: relative;
+    padding: 0 20px;
+    font-size: 1.5rem;
+}
+#active::after{
+    width: 60%;
+    height: 2.5px;
+    border-radius: 10%;
+    background-color: var(--text);
+}
+nav a::after{
+    content: "";
+    background-color: var(--hover);
+    height: 2px;
+    width: 0;
+    position: absolute;
+    bottom: -3px;
+    left: 20px;
+}
+nav a:hover:after{
+    width: 60%;
+    transition: width 2s;
+}
+nav a:hover{
+    color: var(--hover);
+}
+nav ul li:not(:last-child):after{
+    content: "|";
+    position: absolute;
+    font-size: 20px;
+}
+.hover-container{
+    position: relative;
+}
+.hover-content{
+    display: none;
+    position: absolute;
+    background-color: white;
+    right: 0px;
+    top: 10px;
+    z-index: 1;
+}
+nav a img{
+    width: 20px;
+    height: 20px;
+    border: var(--text) 2px solid;
+    border-radius: 50%;
+}
+nav li:hover img{
+    border: var(--hover) 2px solid;
+}
+/* --------------header done------------- */
+/* --------------Home Page Start------------- */
+#ball{
+    height: 20px;
+    background-color: white;
+    position: absolute;
+    border: red 2px solid;
+    border-radius: 50%;
+    animation: ball 4s ease-in-out;
+    animation-iteration-count: infinite;
+    right: 10px;
+}
+.greetings{
+    text-align: center;
+    font-size: 2vw;
+    color: white;
+    height: 86vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: repeating-linear-gradient(rgba(9, 4, 39, 0.548),rgba(24, 5, 5, 0.5)), url(images/greetingBg.jpg);
+    background-repeat: no-repeat;
+    background-size:cover ;
+    text-shadow: black 10px 10px 10px;
+
+}
+.greetings h1{
+    font-size: 5em;
+    text-transform: uppercase;
+}
+.greetings img{
+    width: .7em;
+    border-radius: 50%;
+    border:white 8px solid;
+    box-shadow: inset white -10px -10px 50px, black 10px 10px 10px;
+}
+.greetings h2{
+    font-size: 2em;
+}
+/* -------------home page done------------ */
+/* ---------managing body start------------ */
+.managing-body{
+    justify-content: space-around;
+    position: relative;
+}
+.directors, .committee{
+    flex-basis: 48%;
+}
+.managing-body img{
+    width: 100%;
+    opacity: 1;
+    transition: opacity 2s ease-in-out;
+    height: 50vh;
+}
+.managing-body h1{
+    font-size: 25px;
+    text-align: center;
+    padding: 20px 0;
+}
+.directors div, .committee div{
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.managing-body p{
+    position: absolute;
+    width: 48%;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+.managing-body div:hover .meeting-images{
+    opacity: .1;
+}
+.managing-body div:hover p{
+    opacity: 1;
+}
+.directors-list ul, .committee-list ul{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-gap: 2vw;
+    padding: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.directors-list li, .committee-list li{
+    border-radius: 25px;
+    border: var(--text) solid 2px;
+} 
+.directors-list li img, .committee-list li img{
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border: var(--text) solid 2px;
+    opacity: .5;
+}
+.directors-list li img:hover{
+    opacity: 1;
+}
+.committee-list li img:hover{
+    opacity: 1;
+}
+/* ------------managing body end------------- */
+/* --------social activities start--------- */
+.notyet{
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+}
+/* ----------social activities end--------- */
+/* -----------finance start------------- */
+.finance-main-container aside{
+    flex-grow: 2 ;
+}
+.finance-main-container{
+    padding: 10px 10px;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.finance-box{
+    margin-top: 50px;
+}
+/* --------finance End---------- */
+/* ---------members start-------- */
+.members-main-container{
+    display: flex;
+}
+.members-main-container aside{
+    width: max-content;
+}
+.members-main-container aside ol{
+    padding: 20px 30px;
+}
+.members-main-container aside ol li{
+    padding: 10px 0;
+}
+.members-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-gap: 20px;
+    text-align: center;
+}
+.members-list img{
+    width: 100%;
+    padding:0 15px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.members-list p{
+    color: blue;
+    line-break: 2px;
+}
+/* ----------members end----------- */
+footer{
+    text-align: center;
+    padding-top: 4px;
+    color:var(--text);
+}
+@keyframes ball {
+    0%{bottom: 7vh; border-color: blue;}
+    50%{bottom: 86.5vh; border-color: red;}
+    100%{bottom: 7vh; border-color: white;}
+}
+@keyframes logo {
+    0%{transform: rotate(0deg);}
+    12%{transform: rotate(45deg);}
+    24%{transform: rotate(90deg);}
+    36%{transform: rotate(135deg);}
+    48%{transform: rotate(180deg);}
+    60%{transform: rotate(225deg);}
+    72%{transform: rotate(270deg);}
+    84%{transform: rotate(315deg);}
+    100%{transform: rotate(360deg);}
+}
+
+/* ---------Responsive Mobile----------- */
+@media screen and (max-width: 760px) {
+    nav{
+        height: max-content;
+        justify-content: space-evenly;
+    }
+    ul{
+        flex-direction: column;
+    }
+    nav ul li::after{
+        display: none;
+    }
+    nav ul li{
+        padding:10px 10px;
+    }
+    .greetings{
+        font-size: 4vw;
+        line-height: 10vh;
+    }
+    /* -----------managing body-------- */
+    .managing-body{
+        flex-direction: column;
+    }
+    .hover-container:hover .hover-content{
+        display: block;
+    }
+    .finance-main-container .finance-box img{
+        width: 100%;
+    }
+    .members-main-container{
+        flex-direction: column;
+        align-items: center;
+    }
+}
